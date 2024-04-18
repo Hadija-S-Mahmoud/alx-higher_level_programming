@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that retrieves and prints a list of cities with their\
+"""Module retrieves and prints a list of cities with their\
         associated states from a MySQL database using SQLAlchemy.
 """
 import sys
@@ -20,8 +20,8 @@ if __name__ == "__main__":
     # Retrieves cities and their associated states from the db
     # by joining the City and State tables based on the state_id
     # and ordering the results by city ID
-    for city, state in session.query(City, State) \
-                              .filter(City.state_id == State.id) \
+    for city, state in session.query(City, State)\
+                              .filter(City.state_id == State.id)\
                               .order_by(City.id):
         # Printing the city and state information
         print("{}: ({}) {}".format(state.name, city.id, city.name))
